@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
 import { HomeComponent } from './components/home/home.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { TableService } from './components/table/table.service';
+import { ReviewComponent } from './components/review/review.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { UploadComponent } from './components/upload/upload.component';
     SumbitComponent,
     TableComponent,
     HomeComponent,
-    UploadComponent
+    UploadComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { UploadComponent } from './components/upload/upload.component';
 
 
   ],
-  providers: [],
+  providers: [TableService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
