@@ -1,1 +1,5 @@
-{"test" : {"team_name": "TV Attribution", "testid": "ATTR-3889", "automatable_reason": "None", "testscript": "https://github.com/nielsen-analytics/attr-qa-py-auto/blob/master/tests/tv/tva_stepfunction_modeling.py"}}
+{
+    "test": {
+        "text": "hello world"
+    }
+}

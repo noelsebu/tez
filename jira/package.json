@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start:proxy": "ng run jira:serve:proxy",
-    "start:server": "json-server --watch db.json  --port 8000 --host 10.60.163.75",
+    "start:server": "json-server --watch db.json --port 8080",
     "start:proxy-with-server": "concurrently \"npm run start:server\" \"npm run start:proxy\""
   },
   "private": true,

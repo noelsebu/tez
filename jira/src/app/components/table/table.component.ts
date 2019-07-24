@@ -30,17 +30,17 @@ export class TableComponent implements OnInit {
           console.log(response);
           // this.data = new MatTableDataSource(response);
           this.createTable(response);
-          this.data.sort = this.sort;
+         // this.data.sort = this.sort;
            });
             }
   createTable(data: any) {
       this.data = new MatTableDataSource(data);
       const sample = JSON.stringify(data);
-      this.data.paginator = this.paginator;
+    //  this.data.paginator = this.paginator;
     //  this.data.sort = this.sort;
-      this.array = data;
-      this.totalSize = this.array.length;
-      this.iterator();
+    //  this.array = data;
+    //  this.totalSize = this.array.length;
+     // this.iterator();
            }
   public handlePage(e: any) {
       this.currentPage = e.pageIndex;
@@ -80,7 +80,9 @@ export class TableComponent implements OnInit {
     save() {
       const selectedArray = this.selection.selected;
       console.log(selectedArray);
-      this.test.postresponse(selectedArray);
+      this.test.postresponse(selectedArray).subscribe(res => {
+        console.log('res: ' + res);
+      });
     }
   }
 

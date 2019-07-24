@@ -1,0 +1,18 @@
+{
+  "test": [
+    [
+      {
+        "team_name": "Optimization",
+        "testid": "ATTR-3505",
+        "automatable_reason": "None",
+        "testscript": "attrqa.optimusprime.Mar19Release.api.Test_Optimus_BubbleChart"
+      },
+      {
+        "team_name": "Optimization",
+        "testid": "ATTR-3504",
+        "automatable_reason": "None",
+        "testscript": "attrqa.optimusprime.Mar19Release.api.Test_Optimus_BubbleChart"
+      }
+    ]
+  ]
+}
