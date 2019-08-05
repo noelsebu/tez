@@ -25,7 +25,7 @@ i=0
 response=response.json()
 #subprocess.call(["cd" ,"attrqa_java"])
 with cd("./attrqa_java"):
-    #subprocess.call(['git' , 'pull'])
+    subprocess.call(['git' , 'pull'])
     file1 = open("./testjava.xml","w")
     startingheaders =['<?xml version="1.0" encoding="UTF-8"?> \n','<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">\n',
     '<suite name="SuiteName"> \n','<test  name="ValidToken"> \n','<classes>']

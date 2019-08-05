@@ -4,7 +4,7 @@ import {  HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatRadioModule, MatCardModule } from '@angular/material';
 import { MatTableModule, MatCheckboxModule, MatPaginatorModule, MatSortModule } from '@angular/material';
-import { FileUploadModule } from 'ng2-file-upload';
+
 
 
 
@@ -15,12 +15,13 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SumbitComponent } from './components/sumbit/sumbit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './components/table/table.component';
 import { HomeComponent } from './components/home/home.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { TableService } from './components/table/table.service';
-import { ReviewComponent } from './components/review/review.component';
+import { ReviewComponent } from './components/table/review/review.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ReviewComponent } from './components/review/review.component';
     TableComponent,
     HomeComponent,
     UploadComponent,
-    ReviewComponent
+    ReviewComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ import { ReviewComponent } from './components/review/review.component';
     MatInputModule,
     MatToolbarModule, MatTableModule, MatCheckboxModule, MatPaginatorModule, MatSortModule,
     MatFormFieldModule, MatButtonModule, MatInputModule, MatRadioModule, MatCardModule,
-    FormsModule, HttpClientModule , FileUploadModule
+    FormsModule, HttpClientModule , ReactiveFormsModule
 
 
   ],

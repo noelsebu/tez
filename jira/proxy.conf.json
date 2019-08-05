@@ -1,8 +1,6 @@
 {
-  "/api/*": {
-    "target": "http://0.0.0.0:8080",
-    "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": true
+  "/testcases": {
+      "target": "http://localhost:8081",
+      "secure": false
   }
 }

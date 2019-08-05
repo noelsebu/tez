@@ -11,7 +11,10 @@
 
 <ng-container matColumnDef="select">
   <th mat-header-cell *matHeaderCellDef>
-    <mat-checkbox>
+    <mat-checkbox (change)="$event ? masterToggle() : null"
+    [checked]="selection.hasValue() && isAllSelected()"
+    [indeterminate]="selection.hasValue() && !isAllSelected()"
+    [aria-label]="checkboxLabel()">
 
     </mat-checkbox>
   </th>
@@ -64,10 +67,12 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
 
 </table>
-<!--mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize"
+<!--<mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize"
     [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
 </mat-paginator>-->
-<div class=button><button mat-raised-button color="primary" (click)="save()">Save</button></div>
+<div class=button><a [routerLink]="['/table/review']"><button mat-raised-button color="primary" (click)="save()">Save</button>
+</a>
+</div>
 
 <!--<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
 <!--

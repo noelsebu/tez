@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatPaginatorModule, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import { TableService } from './table.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -36,11 +37,11 @@ export class TableComponent implements OnInit {
   createTable(data: any) {
       this.data = new MatTableDataSource(data);
       const sample = JSON.stringify(data);
-    //  this.data.paginator = this.paginator;
-    //  this.data.sort = this.sort;
-    //  this.array = data;
-    //  this.totalSize = this.array.length;
-     // this.iterator();
+      // this.data.paginator = this.paginator;
+      this.data.sort = this.sort;
+      // this.array = data;
+      // this.totalSize = this.array.length;
+      // this.iterator();
            }
   public handlePage(e: any) {
       this.currentPage = e.pageIndex;
@@ -80,9 +81,7 @@ export class TableComponent implements OnInit {
     save() {
       const selectedArray = this.selection.selected;
       console.log(selectedArray);
-      this.test.postresponse(selectedArray).subscribe(res => {
-        console.log('res: ' + res);
-      });
+      this.test.postresponse(selectedArray);
     }
   }
 

@@ -1,17 +1,25 @@
 
-<div class="container">
+<!DOCTYPE html>
+<form [formGroup]="gitForm" (ngSubmit)="onSubmit()" class="git">
+<div class="form-group">
   <div>
     <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
-      <mat-label>GIT CLONE PATH</mat-label>
-      <input type="text" matInput placeholder="Enter GIT URL">
+      <mat-label for="username">GIT USERNAME</mat-label>
+      <input id="username" formControlName="username" type="text" matInput placeholder="Enter GIT USERNAME">
     </mat-form-field>
   </div>
   <p></p>
 
-  <div class="container">
-    <div>
-      <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 300px;">
-        <mat-label>Environment</mat-label>
-        <input type="text" matInput placeholder="Environment">
+  <div class="form-group">
+    
+      <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
+        <mat-label for="password">Password</mat-label>
+        <input type="password" matInput placeholder="Password" formControlName="password">
       </mat-form-field>
-    </div>
+      <div class=button><a [routerLink]="['/table']">
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      </a>
+      </div>
+</div>
+</div>
+</form>
