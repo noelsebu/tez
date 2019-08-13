@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { GitService } from './git-url.service';
 
 @Component({
   selector: 'app-git-url',
@@ -8,7 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class GitUrlComponent implements OnInit {
   gitForm: FormGroup;
-  constructor() { }
+  constructor(private test: GitService) { }
 
   ngOnInit() {
     this.gitForm = new FormGroup ({
@@ -16,7 +17,11 @@ export class GitUrlComponent implements OnInit {
       password: new FormControl()
     });
   }
-  onSubmit(): void {
-    console.log(this.gitForm.value);
+  postDetails(): void {
+    const selectedArray = this.gitForm.value;
+    this.test.postresponsefinals(selectedArray).subscribe(res => {
+      console.log('res: ' + res);
+    });
+
   }
 }

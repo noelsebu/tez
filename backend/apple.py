@@ -35,19 +35,25 @@ q=[] #this list will contain the path of the table headers in the response of ji
 result=[]
 with open('./key_config.json') as json_file: #reads the config file of  the jira api
     data = json.load(json_file)
-    while i< len(response['issues']):
+    while i< 2:#len(response['issues']):
         
         jira={}
         flag=[0]
-        
+        print("in jira response")
         while j < (len(data)):
+            for (k, v) in data.items():
+                for item in v:
+                    print(item)
+                    p.append(item)
+            #p.append((str(data[str(j)].keys()))[3:-2]) #retrives table header
+            #print(p)
             
-            p.append(str(data[str(j)].keys())[3:-2]) #retrives table header
-            q=((data[str(j)].values())[0]) #retrives the path of table header
+            #print((data[str(j)].values())[0])
+            q=((list((data[str(j)].values())))[0]) #retrives the path of table header
             
         ##########################################################################################################################    
         #checks for none type    
-	    if (len(q)>=0 and response[q[0]] is None):
+            if (len(q)>=0 and response[q[0]] is None):
                 flag.append(1)
             elif (len(q)>=1 and response[q[0]][i] is None ):
                 flag.append(1)

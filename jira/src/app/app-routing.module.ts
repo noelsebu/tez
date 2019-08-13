@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ReviewComponent } from './components/table/review/review.component';
 
 
+
 const routes: Routes = [
    { path: 'table', component: TableComponent },
    { path: '', component: HomeComponent },

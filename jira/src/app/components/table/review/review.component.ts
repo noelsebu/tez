@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatPaginatorModule, MatPaginator, MatSort, MatTableDataSource, MatToolbar } from '@angular/material';
+import { MatPaginatorModule, MatPaginator, MatSort, MatTableDataSource, MatSelect, MatToolbar } from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import { TableService } from '../table.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-review',
@@ -15,13 +16,15 @@ export class ReviewComponent implements OnInit {
   public array: any;
   public displayedColumns: string[] = ['select', 'testid', 'team_name', 'testscript'];
   public data: MatTableDataSource<any[]>;
-  public isDisabled: boolean;
+  public clicked = false;
   selection = new SelectionModel<any[]>(true, []);
   configUrl = 'assets/config.json';
   filename = 'response.json';
   public pageSize = 10;
   public currentPage = 0;
   public totalSize = 0;
+  authForm: FormGroup;
+
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   constructor(private test: TableService) {  }
@@ -29,9 +32,16 @@ export class ReviewComponent implements OnInit {
   ngOnInit(): void {
           this.data = this.test.getselected();
           console.log(this.data);
-          // this.data = new MatTableDataSource(response);
+
           this.createTable(this.data);
-         // this.data.sort = this.sort;
+          this.authForm = new FormGroup ({
+            mie: new FormControl(),
+            token: new FormControl(),
+            username: new FormControl(),
+            password: new FormControl(),
+            environment: new FormControl()
+          });
+
             }
   createTable(data: any) {
       this.data = new MatTableDataSource(data);
@@ -84,7 +94,14 @@ export class ReviewComponent implements OnInit {
       this.test.postresponsefinal(selectedArray).subscribe(res => {
         console.log('res: ' + res);
       });
-      this.isDisabled = true;
     }
 
+    // for credentials sumbission
+    // k
+    postDetails(): void {
+      const selectedArray1 = this.authForm.value;
+      this.test.postcredentials(selectedArray1).subscribe(res => {
+        console.log('res: ' + res);
+      });
+    }
 }

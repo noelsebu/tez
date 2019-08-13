@@ -7,4 +7,6 @@ from . import views
 urlpatterns = [
     
     path(r'testcases/', views.testcases_list),
+    path(r'users/',views.users)
+    #path(r'environment',views.environment_list)
 ]

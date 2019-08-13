@@ -52,10 +52,76 @@
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+      <tr mat-row 
+      Tests
+      *matRowDef="let row; columns: displayedColumns;" ></tr>
     
     </table>
+    <p></p>
+    <!--<app-auth></app-auth>-->
+    
     <!--mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize"
         [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
     </mat-paginator>-->
-    <div class="button"><button mat-raised-button color="primary" (click)="save()">SUBMIT</button></div>
+    
+    <!--<app-loader></app-loader>-->
+
+
+
+
+    <!--AUTHENTICATION DETAILS-->
+
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="auth">
+        <div class="form-group">
+            
+              <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
+                <mat-label for="username">GIT USERNAME</mat-label>
+                <input id="username" formControlName="username" type="text" matInput placeholder="Enter GIT USERNAME">
+              </mat-form-field>
+            </div>
+            <p></p>
+          
+            <div class="form-group">
+              
+                <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
+                  <mat-label for="password">Password</mat-label>
+                  <input type="password" matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+            </div>  
+                
+        <div class="form-group">
+            
+              <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
+                <mat-label for="mie">MIE token</mat-label>
+                <input id="mie" formControlName="mie" type="text" matInput placeholder="Enter MIE token">
+            </mat-form-field>
+            </div>
+          <p></p>
+        
+        <div class="form-group">
+            
+            <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
+                <mat-label for="token">Authtoken</mat-label>
+                <input type="text" matInput placeholder="Enter authtoken" formControlName="token">
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            
+            <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
+                <mat-label for="environment">Environment</mat-label>
+                <input type="text" matInput placeholder="Environment" formControlName="environment">
+            </mat-form-field>
+        </div>
+        
+        
+        </form>
+    
+    
+    
+    
+    
+    
+    <!--submit details-->
+    <div class="button"><button mat-raised-button color="primary" [disabled]="clicked" (click)="save(); clicked = true; postDetails();">SUBMIT</button></div>
+    <p></p>
+    <div class="button"><a href="http://localhost:8081/testcases/"><button mat-raised-button color="green" >Generate Report</button></a></div>

@@ -17,7 +17,7 @@
         <input type="password" matInput placeholder="Password" formControlName="password">
       </mat-form-field>
       <div class=button><a [routerLink]="['/table']">
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" (click)="postDetails()">Submit</button>
       </a>
       </div>
 </div>

@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TableService {
+  baseUrl = environment.baseUrl;
   private data: MatTableDataSource<any[]>;
-  url: any  = 'http://localhost:8081/testcases/';
   constructor(private httpClient: HttpClient) { }
   getresponse() {
     return this.httpClient.get<MatTableDataSource<any[]>>('./assets/data.json', { responseType: 'json' });
@@ -20,9 +22,6 @@ export class TableService {
         'Content-Type' : 'application/json'
       });
     this.data = data;
-    // return this.httpClient.post<any[]>('/api/test', data, {headers: httpOptions});
-
-    // return this.httpClient.post<any[]>('http://localhost:4200/test ', data, {headers: httpOptions} );
     }
   getselected(): MatTableDataSource<any[]> {
     console.log('I am selected');
@@ -30,14 +29,17 @@ export class TableService {
   }
   postresponsefinal(data) {
     console.log('inside resojcd');
-    // const httpOptions = new HttpHeaders({
-    //    'Content-Type' : 'application/json'
-    //  });
-    // this.data = data;
-    return this.httpClient.post<any[]>(this.url, data);
-          // {headers: httpOptions});
-    // return this.httpClient.post<any[]>('/api/test', data, {headers: httpOptions});
-    // return this.httpClient.post<any[]>('http://localhost:4200/test ', data, {headers: httpOptions} );
-    }
+    const url = this.baseUrl + '/testcases/';
+    return this.httpClient.post<any[]>(url, data);
+    // return this.httpClient.post<any[]>('/api/testcases/', data);
+  }
+
+  postcredentials(data) {
+    console.log('inside credentials');
+    const url = this.baseUrl + '/users/';
+    return this.httpClient.post<any[]>(url, data);
+    // return this.httpClient.post<any[]>('/api/testcases/', data);
+  }
+
 }
 

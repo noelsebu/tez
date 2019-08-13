@@ -12,4 +12,5 @@ class SelectedSerializer(serializers.ModelSerializer):
         model =  Selected
         fields = ('team_name','testid','automatable_reason','testscript')
 
+
     

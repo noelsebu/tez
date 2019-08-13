@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [ '*' ]
 
 INSTALLED_APPS = [
     'execute',
+    'reports',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,6 +135,10 @@ USE_L10N = True
 USE_TZ = True
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = False
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 

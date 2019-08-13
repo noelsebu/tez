@@ -6,3 +6,4 @@ from .models import Testcases,Selected
 admin.site.register(Selected)
 admin.site.register(Testcases)
 
+

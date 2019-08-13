@@ -2,5 +2,6 @@
     "0":{"testid":["issues","key"]},
     "1":{"testscript":["issues","fields","customfield_10113"]},
     "2":{"automatable_reason":["issues","fields","customfield_19300"]},
-    "3":{"team_name":["issues","fields","customfield_11500","value"]}
+    "3":{"team_name":["issues","fields","customfield_11500","value"]},
+    "4":{"hours_saved":["issues","fields","customfield_10030"]}
 }

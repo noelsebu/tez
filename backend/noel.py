@@ -41,9 +41,9 @@ with open('./key_config.json') as json_file: #reads the config file of  the jira
         jira={}
             
         while j < (len(data)):
-            
+            print
             p.append(str(data[str(j)].keys())[3:-2]) #retrives table header
-            q=((data[str(j)].values())[0]) #retrives the path of table header
+            q=((data[str(j)].values()[0])) #retrives the path of table header
             
         ##########################################################################################################################    
             #checks for none type

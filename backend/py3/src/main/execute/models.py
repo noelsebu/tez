@@ -4,9 +4,6 @@ from django.db import models
 from django.urls import reverse
 
 class Testcases(models.Model):
-    #team_name = models.TextField()
-    #testid = models.TextField()
-    #automatable_reason=models.TextField()
     def get_absolute_url(self):
         """
         Returns the url to access a particular instance of Family.
@@ -43,3 +40,5 @@ class Selected(models.Model):
     def __str__(self):
 
         return self.testid
+    
+

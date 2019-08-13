@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {  HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatRadioModule, MatCardModule } from '@angular/material';
-import { MatTableModule, MatCheckboxModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatTableModule, MatCheckboxModule, MatPaginatorModule, MatSortModule , MatProgressSpinnerModule} from '@angular/material';
 
 
 
@@ -20,8 +20,17 @@ import { TableComponent } from './components/table/table.component';
 import { HomeComponent } from './components/home/home.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { TableService } from './components/table/table.service';
+import { GitService } from './components/git-url/git-url.service';
 import { ReviewComponent } from './components/table/review/review.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { AuthComponent } from './components/table/auth/auth.component';
+import { ReportComponent } from './components/report/report.component';
+
+// loader components
+
+// import { LoaderComponent } from './components/shared/loader/loader.component';
+// import { LoaderService } from './components/shared/loader/loader.service';
+// import { LoaderInterceptor } from './components/shared/loader/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +43,10 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     HomeComponent,
     UploadComponent,
     ReviewComponent,
-    DropdownComponent
+    DropdownComponent,
+    AuthComponent,
+    ReportComponent
+   // LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -43,11 +55,11 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     MatInputModule,
     MatToolbarModule, MatTableModule, MatCheckboxModule, MatPaginatorModule, MatSortModule,
     MatFormFieldModule, MatButtonModule, MatInputModule, MatRadioModule, MatCardModule,
-    FormsModule, HttpClientModule , ReactiveFormsModule
+    FormsModule, HttpClientModule , ReactiveFormsModule , MatProgressSpinnerModule
 
 
   ],
-  providers: [TableService],
+  providers: [TableService, GitService], // LoaderService , { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
