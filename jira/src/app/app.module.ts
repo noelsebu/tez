@@ -28,9 +28,9 @@ import { ReportComponent } from './components/report/report.component';
 
 // loader components
 
-import { LoaderComponent } from './components/shared/loader/loader.component';
-import { LoaderService } from './components/shared/loader/loader.service';
-import { LoaderInterceptor } from './components/shared/loader/loader.interceptor';
+// import { LoaderComponent } from './components/shared/loader/loader.component';
+// import { LoaderService } from './components/shared/loader/loader.service';
+// import { LoaderInterceptor } from './components/shared/loader/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -45,8 +45,8 @@ import { LoaderInterceptor } from './components/shared/loader/loader.interceptor
     ReviewComponent,
     DropdownComponent,
     AuthComponent,
-    ReportComponent,
-    LoaderComponent
+    ReportComponent
+   // LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +59,7 @@ import { LoaderInterceptor } from './components/shared/loader/loader.interceptor
 
 
   ],
-  providers: [TableService, GitService, LoaderService], // , { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+  providers: [TableService, GitService], // LoaderService], // , { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
