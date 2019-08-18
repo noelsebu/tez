@@ -7,6 +7,6 @@ from . import views
 urlpatterns = [
     
     #path(r'testcases/', views.testcases_list),
-    path(r'users/',views.user_list)
+    path(r'jira/',views.jira_list)
     #path(r'environment',views.environment_list)
 ]

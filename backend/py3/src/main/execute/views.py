@@ -64,7 +64,7 @@ def testcases_list(request):
             print(testscriptjava)
             i=0
             if (testscriptjava or testscriptjavamie): #execute java cases
-                with cd("/home/noel/testmate1/attr-qa-api-ui-auto"):
+                with cd("/home/ubuntu/tez/attr-qa-api-ui-auto"):
                     j=0
                                     
                     
@@ -116,13 +116,13 @@ def testcases_list(request):
                     
                     
                     subprocess.call(['mvn' ,'clean', 'test' ,'-Dsurefire.suiteXmlFiles=testjava.xml', '-DlogToMongo=y'])
-                    cmd = "ls -tr /home/noel/testmate1/attr-qa-api-ui-auto/reports | tail -1"
+                    cmd = "ls -tr /home/ubuntu/tez/attr-qa-api-ui-auto/reports | tail -1"
                     ps=subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)    
                     output = ps.communicate()[0]
                     htmlloc = str(output)[2:-3]
-                    fileloc = "/home/noel/testmate1/attr-qa-api-ui-auto/reports/" + htmlloc
+                    fileloc = "/home/ubuntu/tez/attr-qa-api-ui-auto/reports/" + htmlloc
                     with open(fileloc) as f:
-                        with open("/home/noel/ang/tez/backend/py3/src/main/execute/templates/execute/index.html", "w") as f1:
+                        with open("/home/ubuntu/tez/tez/backend/py3/src/main/execute/templates/execute/index.html", "w") as f1:
                             for line in f:
                                 f1.write(line)
                     return render(request,'execute/index.html')
@@ -143,13 +143,13 @@ def testcases_list(request):
             
                                    
         elif request.method == 'GET':
-                cmd = "ls -tr /home/noel/testmate1/attr-qa-api-ui-auto/reports | tail -1"
+                cmd = "ls -tr /home/ubuntu/tez/attr-qa-api-ui-auto/reports | tail -1"
                 ps=subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)    
                 output = ps.communicate()[0]
                 htmlloc = str(output)[2:-3]
-                fileloc = "/home/noel/testmate1/attr-qa-api-ui-auto/reports/" + htmlloc
+                fileloc = "/home/ubuntu/tez/attr-qa-api-ui-auto/reports/" + htmlloc
                 with open(fileloc) as f:
-                    with open("/home/noel/ang/tez/backend/py3/src/main/execute/templates/execute/index.html", "w") as f1:
+                    with open("/home/ubuntu/tez/tez/backend/py3/src/main/execute/templates/execute/index.html", "w") as f1:
                         for line in f:
                             f1.write(line)
                 return render(request,'execute/index.html')
@@ -164,7 +164,7 @@ def users(request):
         user=request.data['username']
         password=request.data['password']
 
-        with cd("/home/noel/testmate1/attr-qa-api-ui-auto"):
+        with cd("/home/ubuntu/tez/attr-qa-api-ui-auto"):
             
             
             giturl= "https://"+user+":"+password+"@github.com"+"/nielsen-analytics/attr-qa-api-ui-auto"
@@ -205,6 +205,10 @@ def users(request):
                     class_headers='<classes> \n<class name="attrqa.tests.authtoken.AuthorizationToken" /> \n'
                     file1.write(token_headers)
                     file1.write(class_headers)
+            
+            else:
+                class_headers='<test name="test"> \n <classes>'
+                file1.write(class_headers)
 
             file1.close()
             file2.close()
