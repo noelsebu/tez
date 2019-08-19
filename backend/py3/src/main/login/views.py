@@ -6,6 +6,8 @@ from rest_framework.response import Response
 from .serializers import *
 import requests
 import json
+import time
+
 from django.http import JsonResponse
 
 # Create your views here.
@@ -22,6 +24,7 @@ def jira_list(request):
       return Response(serializer.data)
       """
     elif request.method == 'POST':
+        start_time = time.time()
         print("hi")
         print(request.data)
         #user="kare9001"
@@ -68,6 +71,7 @@ def jira_list(request):
         output_file.write(back_json)
 
         output_file.close()
+        print ("My program took", time.time() - start_time, "to run")
         return Response(status=status.HTTP_201_CREATED)
         
         
