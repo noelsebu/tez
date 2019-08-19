@@ -23,14 +23,13 @@ import { TableService } from './components/table/table.service';
 import { GitService } from './components/git-url/git-url.service';
 import { ReviewComponent } from './components/table/review/review.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
-import { AuthComponent } from './components/table/auth/auth.component';
 import { ReportComponent } from './components/report/report.component';
 
 // loader components
 
-// import { LoaderComponent } from './components/shared/loader/loader.component';
-// import { LoaderService } from './components/shared/loader/loader.service';
-// import { LoaderInterceptor } from './components/shared/loader/loader.interceptor';
+import { LoaderComponent } from './components/shared/loader/loader.component';
+import { LoaderService } from './components/shared/loader/loader.service';
+import { LoaderInterceptor } from './components/shared/loader/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,9 +43,8 @@ import { ReportComponent } from './components/report/report.component';
     UploadComponent,
     ReviewComponent,
     DropdownComponent,
-    AuthComponent,
-    ReportComponent
-   // LoaderComponent
+    ReportComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +57,7 @@ import { ReportComponent } from './components/report/report.component';
 
 
   ],
-  providers: [TableService, GitService], // LoaderService], // , { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+  providers: [TableService, GitService, LoaderService , { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

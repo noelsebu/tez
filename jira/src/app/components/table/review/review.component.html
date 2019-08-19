@@ -71,7 +71,7 @@
 
     <!--AUTHENTICATION DETAILS-->
 
-    <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="auth">
+    <form [formGroup]="authForm"  class="auth">
         <div class="form-group">
             
               <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
@@ -124,4 +124,4 @@
     <!--submit details-->
     <div class="button"><button mat-raised-button color="primary" [disabled]="clicked" (click)="save(); clicked = true; postDetails();">SUBMIT</button></div>
     <p></p>
-    <div class="button"><a href="http://localhost:8081/testcases/"><button mat-raised-button color="green" >Generate Report</button></a></div>
+    <div class="button"><a href="http://52.15.111.120:8081/testcases/"><button mat-raised-button color="green" >Generate Report</button></a></div>
