@@ -10,7 +10,7 @@ import { MatTableModule, MatCheckboxModule, MatPaginatorModule, MatSortModule , 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GitUrlComponent } from './components/git-url/git-url.component';
+
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SumbitComponent } from './components/sumbit/sumbit.component';
@@ -35,7 +35,6 @@ import { JiraComponent } from './components/jira/jira.component';
 @NgModule({
   declarations: [
     AppComponent,
-    GitUrlComponent,
     CheckboxComponent,
     HeaderComponent,
     SumbitComponent,
