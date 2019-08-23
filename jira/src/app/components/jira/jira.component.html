@@ -1,17 +1,17 @@
-
 <!DOCTYPE html>
-<form [formGroup]="gitForm"  class="git">
+<form [formGroup]="jiraForm"  class="jira">
 <div class="form-group">
   <div>
+    <!--Captures jira username-->
     <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
-      <mat-label for="username">GIT USERNAME</mat-label>
-      <input id="username" formControlName="username" type="text" matInput placeholder="Enter GIT USERNAME">
+      <mat-label for="username">JIRA USERNAME</mat-label>
+      <input id="username" formControlName="username" type="text" matInput placeholder="Enter JIRA USERNAME">
     </mat-form-field>
   </div>
   <p></p>
 
   <div class="form-group">
-    
+      <!-- captures jira password-->
       <mat-form-field appearance="outline" [hideRequiredMarker]="true" style="width: 500px;">
         <mat-label for="password">Password</mat-label>
         <input type="password" matInput placeholder="Password" formControlName="password">

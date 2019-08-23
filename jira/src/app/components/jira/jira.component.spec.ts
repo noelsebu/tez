@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GitUrlComponent } from './git-url.component';
+import { JiraComponent } from './jira.component';
 
-describe('GitUrlComponent', () => {
-  let component: GitUrlComponent;
-  let fixture: ComponentFixture<GitUrlComponent>;
+describe('JiraComponent', () => {
+  let component: JiraComponent;
+  let fixture: ComponentFixture<JiraComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GitUrlComponent ]
+      declarations: [ JiraComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GitUrlComponent);
+    fixture = TestBed.createComponent(JiraComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -34,6 +34,7 @@ export class TableComponent implements OnInit {
          // this.data.sort = this.sort;
            });
             }
+            // creates table
   createTable(data: any) {
       this.data = new MatTableDataSource(data);
       const sample = JSON.stringify(data);
@@ -78,6 +79,7 @@ export class TableComponent implements OnInit {
       }
       return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
     }
+    // saves the selected tescases and passses it to table service
     save() {
       const selectedArray = this.selection.selected;
       console.log(selectedArray);

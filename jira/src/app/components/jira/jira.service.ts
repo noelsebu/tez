@@ -7,7 +7,7 @@ import { environment } from 'environments/environment';
     providedIn: 'root'
 })
 
-export class GitService {
+export class JiraService {
     baseUrl = environment.baseUrl;
     constructor(private httpClient: HttpClient) { }
     postresponsefinals(data) {

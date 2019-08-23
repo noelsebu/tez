@@ -12,11 +12,15 @@ export class TableService {
   private data: MatTableDataSource<any[]>;
   constructor(private httpClient: HttpClient) { }
   getresponse() {
-    return this.httpClient.get<MatTableDataSource<any[]>>('./assets/data.json', { responseType: 'json' });
+    // retrives jira information
+    const url= this.baseUrl + '/jira/';
+    return this.httpClient.get<MatTableDataSource<any[]>>(url);
+    // return this.httpClient.get<MatTableDataSource<any[]>>('./assets/data.json', { responseType: 'json' });
   }
 
 
   postresponse(data) {
+    // passes the info to review component
     console.log('inside resojcd');
     const httpOptions = new HttpHeaders({
         'Content-Type' : 'application/json'
@@ -24,10 +28,13 @@ export class TableService {
     this.data = data;
     }
   getselected(): MatTableDataSource<any[]> {
+    // takes the selected testcases and intializes this.data  with it 
+
     console.log('I am selected');
     return this.data;
   }
   postresponsefinal(data) {
+    // posts the selected testcases to the server
     console.log('inside resojcd');
     const url = this.baseUrl + '/testcases/';
     return this.httpClient.post<any[]>(url, data);
@@ -35,6 +42,7 @@ export class TableService {
   }
 
   postcredentials(data) {
+    // posts the git crdentials and authokens to the server
     console.log('inside credentials');
     const url = this.baseUrl + '/users/';
     return this.httpClient.post<any[]>(url, data);

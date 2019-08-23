@@ -20,7 +20,7 @@ import { TableComponent } from './components/table/table.component';
 import { HomeComponent } from './components/home/home.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { TableService } from './components/table/table.service';
-import { GitService } from './components/git-url/git-url.service';
+import { JiraService } from './components/jira/jira.service';
 import { ReviewComponent } from './components/table/review/review.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { ReportComponent } from './components/report/report.component';
@@ -30,6 +30,7 @@ import { ReportComponent } from './components/report/report.component';
 import { LoaderComponent } from './components/shared/loader/loader.component';
 import { LoaderService } from './components/shared/loader/loader.service';
 import { LoaderInterceptor } from './components/shared/loader/loader.interceptor';
+import { JiraComponent } from './components/jira/jira.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LoaderInterceptor } from './components/shared/loader/loader.interceptor
     ReviewComponent,
     DropdownComponent,
     ReportComponent,
-    LoaderComponent
+    LoaderComponent,
+    JiraComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ import { LoaderInterceptor } from './components/shared/loader/loader.interceptor
 
 
   ],
-  providers: [TableService, GitService, LoaderService , { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+  providers: [TableService, JiraService, LoaderService , { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
